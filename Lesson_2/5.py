@@ -3,3 +3,20 @@
 под номером 32 и заканчивая 127-м включительно.
 Вывод выполнить в табличной форме: по десять пар "код-символ" в каждой строке.
 """
+
+
+def get_ascii(num_1, num_2):
+    """Вывод символов таблицы ASCII"""
+    if num_1 >= num_2:
+        return num_1, chr(num_1)
+    print(num_1, chr(num_1), end='  ')
+    num_1 += 1
+    if (num_1 - 2) % 10 == 0:
+        print()
+    get_ascii(num_1, num_2)
+
+
+a = 32
+b = 128
+print(get_ascii(a, b))
+

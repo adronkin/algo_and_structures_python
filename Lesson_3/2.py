@@ -5,3 +5,18 @@
 (или 0, 3, 4, 5 - если индексация начинается с нуля),
 т.к. именно в этих позициях первого массива стоят четные числа.
 """
+from random import randint
+
+COUNT_NUM = int(input('Введите кол-во символов для добавления в список: '))
+MY_LIST = []
+MY_LIST_IND = []
+
+while COUNT_NUM > len(MY_LIST):
+    MY_LIST.append(randint(1, 100))
+
+for i in range(len(MY_LIST)):
+    if MY_LIST[i] % 2 == 0:
+        MY_LIST_IND.append(i)
+
+print(f'Элементы списка - {MY_LIST}')
+print(f'Индексы четных элементов списка - {MY_LIST_IND}')

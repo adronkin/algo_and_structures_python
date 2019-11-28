@@ -15,7 +15,7 @@ while len(MY_LIST) < COUNT_NUM:
 for i in range(len(MY_LIST)):
     if MY_LIST[i] > MAX_NUM:
         MAX_NUM, MAX_IND = MY_LIST[i], i
-    elif MY_LIST[i] < MIN_NUM:
+    if MY_LIST[i] < MIN_NUM:
         MIN_NUM, MIN_IND = MY_LIST[i], i
 
 print(f'Исходный список - {MY_LIST}')

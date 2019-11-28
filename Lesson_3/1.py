@@ -6,9 +6,9 @@
 
 MY_COUNT = 0
 
-for i in range(2, 100):
-    for j in range(2, 10):
-        if i % j == 0:
+for i in range(2, 10):
+    for j in range(2, 100):
+        if j % i == 0:
             MY_COUNT += 1
-    print(f'Числу {i} кратно {MY_COUNT} чисел от 2 до 9.')
+    print(f'Числу {i} кратно {MY_COUNT} чисел от 2 до 99.')
     MY_COUNT = 0

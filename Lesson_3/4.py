@@ -1,17 +1,7 @@
 """
 4. Определить, какое число в массиве встречается чаще всего.
 """
-from math import inf
 from random import randint
-
-
-def get_max_num(my_list):
-    """Возвращает максимальное число в списке"""
-    max_num = -float(inf)
-    for i in my_list:
-        if i > max_num:
-            max_num = i
-    return max_num
 
 
 def get_count_num(my_list, num):
@@ -25,11 +15,16 @@ def get_count_num(my_list, num):
 
 COUNT_NUM = int(input('Введите кол-во символов для добавления в список: '))
 MY_LIST = []
+NUM_COUNT, NUM = 0, 0
 
 while len(MY_LIST) < COUNT_NUM:
     MY_LIST.append(randint(1, 10))
 
-MAX_ELEM = get_max_num(MY_LIST)
+for num in MY_LIST:
+    count_num = get_count_num(MY_LIST, num)
+    if count_num > NUM_COUNT:
+        NUM_COUNT = count_num
+        NUM = num
 
-print(f'В списке - {MY_LIST}, \nмаксимальный элемент "{MAX_ELEM}", '
-      f'встречается {get_count_num(MY_LIST, MAX_ELEM)} раз(а).')
+print(f'В списке - {MY_LIST}\n '
+      f'чаще всех встречается "{NUM}" - {NUM_COUNT} раз(а).')

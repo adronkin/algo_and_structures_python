@@ -5,3 +5,29 @@
 [‘C’, ‘4’, ‘F’] соответственно. Сумма чисел из примера: [‘C’, ‘F’, ‘1’],
 произведение - [‘7’, ‘C’, ‘9’, ‘F’, ‘E’].
 """
+from collections import deque, defaultdict
+
+
+class HexCalc:
+    """Принимает 2 шестнадцатиричных числа, сохраняет в виде deque"""
+    def __init__(self, num_1, num_2):
+        self.num_1 = deque(num_1)
+        self.num_2 = deque(num_2)
+
+    def __add__(self, obj):
+        self.num_hex_1 = ''
+        for num in self.num_1:
+            self.num_hex_1 += num
+        return list(hex(int(''.join(self.num_hex_1), 16) + int(''.join(obj.num_2), 16)))[2:]
+
+    def __mul__(self, obj):
+        self.num_hex_1 = ''
+        for num in self.num_1:
+            self.num_hex_1 += num
+        return list(hex(int(''.join(self.num_hex_1), 16) * int(''.join(obj.num_2), 16)))[2:]
+
+
+X = input('Введите первое шастнадцатиричное число: ')
+Y = input('Введите второе шастнадцатиричное число: ')
+print(f'{X} + {Y} = {("".join(HexCalc(X, Y) + HexCalc(X, Y))).upper()}')
+print(f'{X} * {Y} = {("".join(HexCalc(X, Y) * HexCalc(X, Y))).upper()}')

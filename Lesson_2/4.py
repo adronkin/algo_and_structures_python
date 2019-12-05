@@ -18,7 +18,7 @@ def sum_element_mass(start_num, num, sum_elem, elem_num):
 NUM = int(input('Введите число елемента "n": '))
 START_NUM = 1
 SUM_ELEM = 0
-ELEM_NUM = 1
+ELEM_NUM = 0
 
 try:
     print(sum_element_mass(START_NUM, NUM, SUM_ELEM, ELEM_NUM))

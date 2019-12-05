@@ -31,3 +31,28 @@ X = input('Введите первое шастнадцатиричное чис
 Y = input('Введите второе шастнадцатиричное число: ')
 print(f'{X} + {Y} = {("".join(HexCalc(X, Y) + HexCalc(X, Y))).upper()}')
 print(f'{X} * {Y} = {("".join(HexCalc(X, Y) * HexCalc(X, Y))).upper()}')
+
+"""
+=================== defaultdict ===================
+"""
+
+X_DICT = defaultdict(list)
+Y_DICT = defaultdict(list)
+
+for sign in range(len(X)):
+    X_DICT[sign].append(X[sign])
+
+for sign in range(len(Y)):
+    Y_DICT[sign].append(Y[sign])
+
+print(X_DICT.values())
+print(Y_DICT.values())
+from itertools import chain
+
+TEMP_X = (''.join(list(chain(*X_DICT.values()))))
+TEMP_Y = (''.join(list(chain(*Y_DICT.values()))))
+HEX_SUM = hex(int(TEMP_X, 16)) + hex(int(TEMP_Y, 16))[2:]
+# HEX_MUL = list(hex(int(TEMP_X, 16))) * list(hex(int(TEMP_Y, 16)))[2:]
+
+print(HEX_SUM)
+print(TEMP_Y)
